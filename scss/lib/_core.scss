@@ -2,7 +2,8 @@ html,
 body {
     font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'Hiragino Kaku Gothic Pro', 'Meiryo', 'MS PGothic';
     color: $text;
-    background-color: $background;
+    background-color: $bg-light;
+    background-image: none;
     line-height: 1.6;
 }
 a {
@@ -40,17 +41,9 @@ h1,h2,h3,h4,h5,h6 {
 /* container */
 #container,
 #footer {
-    padding-left: 10px;
-    padding-right: 10px;
-    @media #{$mq-sm} {
-        width: 720px;
-        margin: auto;
-        padding-left: 0;
-        padding-right: 0;
-    }
-    @media #{$mq-md} {
-        width: 940px;
-    }
+    widthL: 100%;
+    padding-left: 0;
+    padding-right: 0;
 }
 
 /* 2カラムレイアウト */
@@ -72,7 +65,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 #box2 {
     @media #{$mq-sm} {
-        width: 200px;
+        width: 100%;
     }
     @media #{$mq-md} {
         width: 300px;
@@ -137,22 +130,26 @@ h1,h2,h3,h4,h5,h6 {
     @media #{$mq-sm} {
         margin: 3em 0;
         text-align: left;
+        text-shadow: none !important;
     }
 }
 #title {
     margin: 0;
     font-size: 1.5rem;
+    letter-spacing: 1rem;
     @media #{$mq-md} {
         font-size: 1.7rem;
     }
     a {
         color: $text;
+        text-shadow: none !important;
     }
 }
 #blog-description {
     font-weight: normal;
     font-size: .8rem;
     margin: 1em 0 0;
+    text-shadow: none !important;
 }
 
 /* ヘッダ画像を設定したとき */
@@ -164,6 +161,7 @@ h1,h2,h3,h4,h5,h6 {
         display: flex;
         flex-direction: row;
         align-items: center;
+        background-size: cover;
     }
     #blog-title-content {
         margin-left: 10px;
@@ -238,7 +236,7 @@ h1,h2,h3,h4,h5,h6 {
     h4,
     h5,
     h6 {
-        margin: 1em 0 0.8em 0;
+        margin: 2em 0 1em 0;
     }
     h1 {
         font-size: 1.5rem;
@@ -247,12 +245,20 @@ h1,h2,h3,h4,h5,h6 {
         }
     }
     h2 {
+        color: $text;
+        padding: 1rem 0;
         font-size: 1.4rem;
+        background: #fff !important;
+        &:before {
+          content: none;
+        }
         @media #{$mq-md} {
             font-size: 1.5rem;
         }
     }
     h3 {
+        color: $text !important;
+        border-color: $text;
         font-size: 1.2rem;
         @media #{$mq-md} {
             font-size: 1.3rem;
@@ -348,7 +354,7 @@ h1,h2,h3,h4,h5,h6 {
         margin: 2em auto;
     }
     .table-of-contents {
-        padding: 1em 1em 1em 2em;
+        padding: 2em 1em 1em 2em;
         margin: 1em 0;
         border: 1px solid $border;
     }
@@ -483,6 +489,9 @@ h1,h2,h3,h4,h5,h6 {
     list-style: none;
     margin: 0;
     padding: 0;
+    :before {
+      content: none;
+    }
     li {
         padding: .5em 0;
         &:last-child {
@@ -519,7 +528,7 @@ h1,h2,h3,h4,h5,h6 {
     }
     .search-module-input {
         flex: 1 0;
-        padding: 5px;
+        padding: 1.5rem;
         color: $text;
         background: none;
         border: none;
