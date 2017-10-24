@@ -80,16 +80,64 @@ ul.table-of-contents {
   content: none;
 }
 
+/* Layout */
+#wrapper {
+  flex: 1 1 auto;
+}
+
+.page-entry #wrapper,
+.page-preview #wrapper,
+.page-index #wrapper {
+  margin: 0;
+}
+
+.page-entry .entry-inner,
+.page-preview .entry-inner,
+.page-entry .entry-date,
+.page-preview .entry-date {
+  padding: 0;
+}
+
+.page-entry .pager {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 #content {
+  padding: 32px;
   box-shadow: 0px 0px 3px rgba(0,0,0,0.05)
 }
 
+.archive-heading {
+  position: relative;
+  padding: 1rem 0;
+  background: #fff;
+  color: #444;
+  text-align: left;
+}
+
+.archive-heading::before {
+  content: none;
+}
+
+/* category */
 .entry-date:before,
 .page-entry .entry-categories:before,
 .page-preview .entry-categories:before,
 .entry-content ul li::before,
-.entry-content ul ul li::before {
+.entry-content ul ul li::before,
+.page-archive .categories:before {
   margin-right: 0.6rem;
+}
+
+.page-index .entry:before,
+.page-index .entry:after {
+  content: none;
+}
+
+a.entry-see-more {
+  opacity: 0;
 }
 
 /* hatena module */
@@ -147,21 +195,19 @@ ul.table-of-contents {
 .three-footer {
   max-width: 1174px;
   margin: 0 auto;
-  padding: 40px 1em;
+  padding: 32px 1em;
 }
 
 .three-footer div a {
   color: #1487bd;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1200px) {
   #blog-title {
     height: 160px;
   }
   #content {
-    margin: 0;
-  }
-  #box2 {
-    padding: 4%;
+    margin: 32px auto;
+    padding: 32px;
   }
 }
