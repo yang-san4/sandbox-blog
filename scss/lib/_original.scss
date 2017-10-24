@@ -1,0 +1,153 @@
+
+/* </system> */
+/* =================== Colors =================== */
+/* メインカラー 500 */
+#blog-title,
+.archive-heading,
+.entry-content h2,
+.entry-content ol li:before,
+.hatena-module-title,
+.page-entry .pager .pager-next::after,
+.page-entry .pager .pager-prev::before,
+.page-index .pager a:hover {
+  background-color: #9CD996;
+}
+
+.entry-content h3,
+.entry-content h4::before,
+.entry-content p a,
+.entry-content ul li::before,
+.entry-content ul ul li::before,
+.hatena-module-category .hatena-urllist li::before,
+.page-entry .pager span a,
+.page-index .pager a,
+.urllist-item::before,
+ul.table-of-contents:before {
+  color: #9CD996;
+}
+
+.archive-heading::before,
+.entry-content h2::before {
+  border-top-color: #9CD996;
+}
+
+
+.page-entry .pager span,
+.page-index .pager a,
+ul.table-of-contents {
+  border-color: #9CD996;
+}
+@media screen and (max-width: 480px) {
+  .entry-content h2 {
+    border-bottom: 3px solid #9CD996;
+    color: #色コード;
+    background-color: transparent;
+  }
+}
+/* 濃い色 600 */
+#globalheader-container,
+.zeno-menu li a:hover {
+  background: #55828B;
+}
+
+.entry-content p a:visited {
+  color: #色コード;
+}
+/* 薄い色 400 */
+#zeno-menu,
+.entry-content ol ol li:before,
+.page-entry .pager span a:hover {
+  background: #55828B;
+}
+/* =================== Components =================== */
+/* Header */
+#blog-title #blog-title-inner {
+  padding: 1em;
+}
+
+#blog-description {
+  color: #fff;
+  margin-top: 1em;
+  font-weight: normal;
+}
+
+.search-form:after {
+  content: none;
+}
+
+#content {
+  box-shadow: 0px 0px 3px rgba(0,0,0,0.05)
+}
+
+/* hatena module */
+.hatena-module-title {
+  padding: 1em 0;
+  font-size: 1.2rem;
+  background-color: transparent;
+  color: #444;
+  border: none;
+}
+
+.hatena-module-title a {
+  color: #444;
+}
+
+.hatena-module-title a:hover {
+  text-decoration: underline;
+}
+
+.hatena-module-body {
+  padding: 0 !important;
+}
+/*  カテゴリタグ　*/
+.page-entry .entry-categories,
+.page-index .entry-categories {
+  background: #23B5D3;
+  transform: none;
+  color: #fff;
+  box-shadow: none;
+  margin: 0;
+}
+
+.page-entry .entry-categories {
+  position: relative;
+  top: 0;
+  left: 0;
+  padding: 0.2em 1em;
+}
+
+.page-entry .entry-categories a,
+.page-index .entry-categories a {
+  color: #fff;
+}
+/* footer */
+#bottom-editarea {
+  border-top: 1px solid #eee;
+  width: 100%;
+  margin: 0 auto;
+  background: #fff;
+  padding: 0;
+  color: #444;
+}
+
+.three-footer {
+  max-width: 1174px;
+  margin: 0 auto;
+  padding: 40px 1em;
+}
+
+.three-footer div a {
+  color: #1487bd;
+}
+
+@media screen and (max-width: 768px) {
+  #blog-title {
+    height: 160px;
+  }
+  #content {
+    margin: 0;
+  }
+  #box2 {
+    padding: 4%;
+  }
+}
