@@ -19,8 +19,9 @@
 // import variable
 @import "lib/_variable";
 
+/* 2017/10/25 _coreは使わずZENO-TEALを_customで上書きする方法でスタイリングする */
 // import core
-@import "lib/_core";
+// @import "lib/_core";
 
 // import custom styles
 @import "lib/_custom";
