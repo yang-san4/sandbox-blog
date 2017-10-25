@@ -1,46 +1,42 @@
+// # コーディングルール
+// - なるべく３つ以上のネストはしない
+// - _valiable.scssに変数をまとめる
+// - なるべく変数で色指定を
 
-/* =================== Colors =================== */
-/* ここで色の設定をする */
+// =================== Colors ===================
+// ZENO TEAL 解説ページから拝借したものを少し改変
+// まとめて指定できる共通的なものはここで色指定する
 
 /* メインカラー 500 */
 #blog-title,
-.archive-heading,
-.entry-content h2,
 .entry-content ol li:before,
-.hatena-module-title,
 .page-entry .pager .pager-next::after,
 .page-entry .pager .pager-prev::before,
 .page-index .pager a:hover {
-  background-color: #9CD996;
+  background-color: $primaly;
 }
 
-.entry-content h3,
-.entry-content h4::before,
 .entry-content p a,
 .entry-content ul li::before,
 .entry-content ul ul li::before,
 .hatena-module-category .hatena-urllist li::before,
 .page-entry .pager span a,
 .page-index .pager a,
-.urllist-item::before,
-ul.table-of-contents:before {
-  color: #9CD996;
+.urllist-item::before {
+  color: $primaly;
 }
 
-.archive-heading::before,
-.entry-content h2::before {
-  border-top-color: #9CD996;
+.archive-heading::before, {
+  border-top-color: $primaly;
 }
-
 
 .page-entry .pager span,
-.page-index .pager a,
-ul.table-of-contents {
-  border-color: #9CD996;
+.page-index .pager a, {
+  border-color: $primaly;
 }
 @media screen and (max-width: 480px) {
   .entry-content h2 {
-    border-bottom: 3px solid #9CD996;
+    border-bottom: 3px solid $primaly;
     color: #色コード;
     background-color: transparent;
   }
@@ -61,19 +57,93 @@ ul.table-of-contents {
   background: #55828B;
 }
 
+// =================== Components ===================
+// ここでコンポーネントの設定をする
 
-/* =================== Layout =================== */
-/* ここでレイアウト関連の設定をする */
+////////// Typography //////////
 
+.page-entry .entry-title,
+.page-preview .entry-title {
+  @media #{$mq-xs} {
+    font-size: 1.5rem
+  }
+}
 
-/* =================== Components =================== */
-/* ここでコンポーネントの設定をする　 */
+.entry-content {
+  h1 {
+    padding: 0.5em 0;
+
+    @media #{$mq-xs} {
+      font-size: 1.5rem
+    }
+  }
+
+  h2 {
+    // relative を追加してstickyをやめる
+    position: relative;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0.5em 0;
+    color: $text;
+    background-color: #fff;
+    border-bottom: 1px solid $border;
+
+    &::before {
+      content: none;
+    }
+  }
+
+  h3 {
+    padding: 0.5em 0 0.5em 0.5em;
+    color: $text;
+    border-left: 1px solid $border;
+  }
+
+  h4 {
+    &::before {
+      color: $primaly;
+    }
+  }
+
+  // リストのスタイル
+  ul {
+    & li {
+      padding: 0 0 0 1.2em;
+    }
+
+    & li::before {
+      position: absolute;
+      top: 0.3em;
+      left: 0;
+    }
+  }
+}
+
+// インデックスリスト
+
+ul.table-of-contents {
+  border-color: $border;
+
+  &::before {
+    color: $text;
+  }
+}
+
+// breadcrumb
+
+.breadcrumb-link,
+.breadcrumb-child-link {
+  color: $link;
+}
+
+////////// body //////////
 
 body {
   background-color: $bg-light;
+  font-family: Muli,Roboto,Droid Sans,游ゴシック,Yu Gothic,HiraKakuProN-W3,Hiragino Kaku Gothic ProN,メイリオ,Meiryo,ＭＳ\ Ｐゴシック,sans-serif;
 }
 
-/* Header */
+////////// Header //////////
 
 #blog-title {
   margin: 0 !important;
@@ -86,14 +156,19 @@ body {
 
 .header-image-enable {
   #blog-title {
-    /* メインタイトル */
+    // メインタイトル //
+    #title {
+      margin: 0 0 0.6em;
+    }
+
     #title a {
       margin: 0;
       letter-spacing: 0.1em;
+      font-weight: normal;
       text-shadow: none
     }
 
-    /* メインタイトル下説明文 */
+    // メインタイトル下説明文 //
     #blog-description {
       color: #fff;
       margin: 1em 0 0 0;
@@ -103,7 +178,18 @@ body {
   }
 }
 
-/* footer */
+// トップメニュー
+.zeno-menu li {
+  & a {
+    letter-spacing: 0.1em;
+  }
+
+  & i {
+    margin-right: 4px;
+  }
+}
+
+////////// footer //////////
 
 #bottom-editarea {
   border-top: 1px solid #eee;
@@ -111,7 +197,7 @@ body {
   margin: 0 auto;
   background: #fff;
   padding: 0;
-  color: #444;
+  color: $text;
 }
 
 .three-footer {
@@ -120,129 +206,121 @@ body {
   padding: 32px 1em;
 
   div a {
-    color: #1487bd;
+    color: $link;
+  }
+}
+
+////////// sidebar //////////
+// サイドバーのコンポーネントのスタイル
+
+// box
+
+#box2-inner {
+  @media #{$mq-xs} {
+    padding: 16px;
+  }
+}
+
+// hatena module
+
+.hatena-module-title {
+  padding: 1em 0;
+  font-size: 1.2em;
+  background-color: transparent;
+  color: $text;
+  border: none;
+
+  a {
+    color: $text;
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.hatena-module-body {
+  padding: 0 !important;
+}
+
+.urllist-item {
+  padding: 0.5em 2em 0.5em 0;
+
+  &::before {
+    top: calc( 50% - 0.4em );
+  }
+
+  .urllist-title-link {
+    display: block;
+  }
+}
+
+.hatena-module-search-box {
+  // 検索のタイトルはplaceholderと重複し余分なので表示しない
+  .hatena-module-title {
+    display: none;
   }
 }
 
 
-//
-// /* =================== Components =================== */
+////////// index //////////
+// 一覧ページ
 
-//
-// .search-form:after {
-//   content: none;
-// }
-//
-// /* Layout */
-// #wrapper {
-//   flex: 1 1 auto;
-// }
-//
-// .page-entry #wrapper,
-// .page-preview #wrapper,
-// .page-index #wrapper {
-//   margin: 0;
-// }
-//
-// .page-entry .entry-inner,
-// .page-preview .entry-inner,
-// .page-entry .entry-date,
-// .page-preview .entry-date {
-//   padding: 0;
-// }
-//
-// .page-entry .pager {
-//   width: 100%;
-//   margin: 0;
-//   padding: 0;
-// }
-//
-// #content {
-//   padding: 32px;
-//   box-shadow: 0px 0px 3px rgba(0,0,0,0.05)
-// }
-//
-// .archive-heading {
-//   position: relative;
-//   padding: 1rem 0;
-//   background: #fff;
-//   color: #444;
-//   text-align: left;
-// }
-//
-// .archive-heading::before {
-//   content: none;
-// }
-//
-// /* category */
-// .entry-date:before,
-// .page-entry .entry-categories:before,
-// .page-preview .entry-categories:before,
-// .entry-content ul li::before,
-// .entry-content ul ul li::before,
-// .page-archive .categories:before {
-//   margin-right: 0.6rem;
-// }
-//
-// .page-index .entry:before,
-// .page-index .entry:after {
-//   content: none;
-// }
-//
-// a.entry-see-more {
-//   opacity: 0;
-// }
-//
-// /* hatena module */
-// .hatena-module-title {
-//   padding: 1em 0;
-//   font-size: 1.2rem;
-//   background-color: transparent;
-//   color: #444;
-//   border: none;
-// }
-//
-// .hatena-module-title a {
-//   color: #444;
-// }
-//
-// .hatena-module-title a:hover {
-//   text-decoration: underline;
-// }
-//
-// .hatena-module-body {
-//   padding: 0 !important;
-// }
-// /*  カテゴリタグ　*/
-// .page-entry .entry-categories,
-// .page-index .entry-categories {
-//   background: #23B5D3;
-//   transform: none;
-//   color: #fff;
-//   box-shadow: none;
-//   margin: 0;
-// }
-//
-// .page-entry .entry-categories {
-//   position: relative;
-//   top: 0;
-//   left: 0;
-//   padding: 0.2em 1em;
-// }
-//
-// .page-entry .entry-categories a,
-// .page-index .entry-categories a {
-//   color: #fff;
-//
-// }
+a.entry-see-more {
+  opacity: 0;
+}
 
-//
-// @media screen and (max-width: 1200px) {
-//   #blog-title {
-//     height: 160px;
-//   }
-//   #content {
-//     margin: 32px auto;
-//     padding: 32px;
-//   }
-// }
+////////// archive //////////
+// カテゴリ等のアーカイブページ
+
+.archive-heading {
+  position: relative;
+  padding: 1em 0;
+  background: #fff;
+  color: $text;
+  text-align: left;
+
+  &::before {
+    content: none;
+  }
+}
+
+////////// category //////////
+//  カテゴリタグ
+
+.page-archive .categories:before
+.page-entry .entry-categories:before,
+.page-preview .entry-categories:before,
+.entry-date:before,
+.entry-content ul li::before,
+.entry-content ul ul li::before, {
+  margin-right: 0.5em;
+}
+
+.page-index {
+  & .entry:before,
+  & .entry:after {
+    content: none;
+  }
+}
+
+.page-entry .entry-categories,
+.page-index .entry-categories {
+  background: $info;
+  transform: none;
+  color: #fff;
+  box-shadow: none;
+  margin: 0;
+
+  & a {
+    color: #fff;
+  }
+}
+
+.page-entry .entry-categories {
+  position: relative;
+  top: 0;
+  left: 0;
+  margin-bottom: 1.5em;
+  padding: 0.5em 1em;
+}

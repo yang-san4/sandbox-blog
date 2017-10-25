@@ -4,6 +4,7 @@
   "description": "Boilerplate for Hatena Blog theme",
   "author": "Hatena Blog",
   "license": "MIT",
+  "repository": "sandbox-blog",
   "scripts": {
     "prestart": "npm run build",
     "start": "npm-run-all -p watch server",
